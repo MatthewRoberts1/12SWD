@@ -20,9 +20,15 @@ while True:
 
 orchid = input('[V]andas, [M]iltonia, or [C]attleya?')
 if orchid not in ['V','M','C']:
-    print("Please enter V, M or C")
+    print("Please enter V, M or C next time.")
+    exit()
 
-quant = int(input("How many of the flower type? "))
+quant = int(input("How many of the flower type? (0-99) "))
+if quant > 99 or quant < 1:
+    print("Please enter a vaild number.")
+    exit()
+else:
+    pass
 
 price = quant * orchid
 if orchid == "V":
