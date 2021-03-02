@@ -21,21 +21,23 @@ while True:
 orchid = input('[V]andas, [M]iltonia, or [C]attleya?')
 if orchid not in ['V','M','C']:
     print("Please enter V, M or C next time.")
+    # is there a way they could guess again?
     exit()
 
 quant = int(input("How many of the flower type? (0-99) "))
 if quant > 99 or quant < 1:
     print("Please enter a vaild number.")
+    # is there a way they could guess again?
     exit()
 else:
     pass
 
-price = quant * orchid
+price = None
 if orchid == "V":
     price = priceList['Vandas']
-    price = int(price) * int(quant)
+    price = price * quant
     if quant > 5:
-        price = price *0.95
+        price = price * 0.95
     if member == True:
         price = price *0.9
         print("Your price is:", price)
@@ -44,7 +46,7 @@ if orchid == "V":
 
 elif orchid == "M":
     price = priceList['Miltonia']
-    price = int(price) * int(quant)
+    price = price * quant
     if quant > 5:
         price = price *0.95
     if member == True:
@@ -55,11 +57,13 @@ elif orchid == "M":
 
 elif orchid == "C":
     price = priceList['Cattleya']
-    price = int(price) * int(quant)
+    price = price * quant
     if quant > 5:
-        price = price *0.95
+        price = price * 0.95
     if member == True:
-        price = price *0.9
+        price = price * 0.9
         print("Your price is:", price)
     if member == False:
         print("your price is:", price)
+
+# Consider adding the discount calculations to a function.
